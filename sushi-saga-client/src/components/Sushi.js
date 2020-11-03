@@ -1,23 +1,35 @@
 import React, { Fragment } from 'react'
 
-const Sushi = (props) => {
+const Sushi = ({sushi, handleClick, eatenSushi}) => {
+
+
+
+
   return (
+
+    
     <div className="sushi">
-      <div className="plate" 
-           onClick={/* Give me a callback! */ null}>
-        { 
-          /* Tell me if this sushi has been eaten! */ 
-          false ?
-            null
-          :
-            <img src={/* Give me an image source! */ } width="100%" />
+      <div className="plate"
+       onClick={() => handleClick(sushi)}>
+        {!!(eatenSushi.find(s => s.id === sushi.id))=== false  ? <img src={sushi.img_url}></img>:
+        <p></p>
         }
       </div>
       <h4 className="sushi-details">
-        {/* Give me a name! */} - ${/* Give me a price! */}
+        {sushi.name} - ${sushi.price}
       </h4>
-    </div>
+    </div>  
   )
 }
 
+
+
 export default Sushi
+
+// {
+//   "id": 2,
+//   "name": "Tsundere Ebi",
+//   "img_url": "./sushi/ebi.png",
+//   "price": 15,
+//   "created_at": "2018-07-27T18:53:16.244Z"
+// },

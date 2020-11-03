@@ -8,20 +8,27 @@ const Table = (props) => {
     })
   }
 
+  function add(array){
+    let sum = 200
+    array.forEach(a => {
+     sum = sum - a.price
+   })
+   return sum
+  }
+
+  // function moneyLeft(money){
+  //   return money -= props.eatenSushi.reduce
+  // }
+
   return (
     <Fragment>
       <h1 className="remaining">
-        You have: ${ /* Give me how much money I have left */ } remaining!
+        You have: ${add(props.eatenSushi)} remaining!
       </h1>
       <div className="table">
         <div className="stack">
           {
-            /* 
-               renderPlates takes an array 
-               and renders an empty plate
-               for every element in the array
-            */
-            renderPlates([])
+            renderPlates(props.eatenSushi)
           }
         </div>
       </div>
